@@ -22,7 +22,8 @@ services:
     image: redis:7-alpine
     container_name: day19-redis
     ports:
-      - "6379:6379"
+      # Host 6380 — tránh xung đột với Redis khác đang chiếm :6379 trên máy
+      - "6380:6379"
     volumes:
       - redis_data:/data
     command: ["redis-server", "--save", "60", "1", "--appendonly", "yes"]

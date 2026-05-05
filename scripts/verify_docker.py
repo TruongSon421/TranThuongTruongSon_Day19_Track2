@@ -44,10 +44,10 @@ def main() -> int:
         print(f"    Qdrant collections: {len(cols.collections)}")
 
         # ── 2. Redis ────────────────────────────────────────────────────
-        step("Redis reachable on :6379")
-        assert can_reach("localhost", 6379), "Redis not reachable."
+        step("Redis reachable on :6380 (docker maps host→container 6380:6379)")
+        assert can_reach("localhost", 6380), "Redis not reachable."
         import redis
-        r = redis.Redis(host="localhost", port=6379)
+        r = redis.Redis(host="localhost", port=6380)
         assert r.ping(), "Redis PING failed"
 
         # ── 3. Postgres ─────────────────────────────────────────────────

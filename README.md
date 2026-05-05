@@ -60,8 +60,8 @@ make api &
 make benchmark
 ```
 
-Yêu cầu: Docker Desktop ≥ 4.x, RAM ≥ 8 GB free, port 6333/6379/5432 không xung đột.
-Endpoints: Qdrant http://localhost:6333 · Redis :6379 · Postgres :5432
+Yêu cầu: Docker Desktop ≥ 4.x, RAM ≥ 8 GB free, port 6333/6380/5432 không xung đột (Redis lab dùng **6380** để không đụng Redis :6379 sẵn có trên máy).
+Endpoints: Qdrant http://localhost:6333 · Redis **:6380** · Postgres :5432
 
 ---
 

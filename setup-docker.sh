@@ -66,7 +66,7 @@ cat <<EOF
 [docker] Done. Services running:
 
   Qdrant   → http://localhost:6333  (dashboard)
-  Redis    → redis://localhost:6379
+  Redis    → redis://localhost:6380  (host port; container still 6379)
   Postgres → postgresql://feast:feast@localhost:5432/feast_offline
 
 Activate the venv and continue:

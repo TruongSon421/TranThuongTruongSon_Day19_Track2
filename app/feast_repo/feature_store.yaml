@@ -1,24 +1,30 @@
+# project: lab19
+# provider: local
+# registry: registry.db
+# online_store:
+#   type: sqlite
+#   path: online_store.db
+# offline_store:
+#   type: file
+# entity_key_serialization_version: 3
+
+# Docker path: replace the online_store + offline_store blocks above with the
+# following (Feast online→Redis, offline pulls from Postgres). After NB4 writes
+# Parquet, run: python scripts/sync_feast_parquet_to_postgres.py then feast apply.
+#
 project: lab19
 provider: local
 registry: registry.db
 online_store:
-  type: sqlite
-  path: online_store.db
+  type: redis
+  connection_string: localhost:6380
 offline_store:
-  type: file
+  type: postgres
+  host: localhost
+  port: 5432
+  database: feast_offline
+  user: feast
+  password: feast
+  db_schema: public
+  sslmode: disable
 entity_key_serialization_version: 3
-
-# Docker path: replace the online_store + offline_store blocks above with the
-# following (and `feast apply` will write to Redis + Postgres instead):
-#
-# online_store:
-#   type: redis
-#   connection_string: localhost:6379
-# offline_store:
-#   type: postgres
-#   host: localhost
-#   port: 5432
-#   database: feast_offline
-#   user: feast
-#   password: feast
-#   db_schema: public

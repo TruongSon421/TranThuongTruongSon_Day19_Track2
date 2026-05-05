@@ -6,8 +6,8 @@
 # Redis (Feast online store)
 redis>=5.0,<6.0
 
-# Postgres (Feast offline store)
-psycopg[binary]>=3.2,<4.0
+# Postgres (Feast offline store — feast.contrib.postgres imports psycopg_pool)
+psycopg[binary,pool]>=3.2,<4.0
 sqlalchemy>=2.0,<3.0
 
 # Heavier multilingual embeddings (optional; keeps fastembed as default)
